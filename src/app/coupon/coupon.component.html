@@ -1,0 +1,35 @@
+<div>
+  <div *ngIf="isAdmin" style="float: right;  padding-top: 20px;  padding-bottom: 10px;">
+    <button type="button" class="btn btn-primary" (click)="openCreateDialog()">Create</button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Discount(%)</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Expires On</th>
+        <th scope="col">Revenue Share(%)</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let coupon of coupons; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ coupon.name }}</td>
+        <td>{{ coupon.discountPercent }}</td>
+        <td>{{ coupon.customer.name }}</td>
+        <td>{{ coupon.expiresOn }}</td>
+        <td>{{ coupon.revenueSharePercent }}</td>
+        <td>{{ coupon.status }}</td>
+        <td>
+          <button type="button" class="btn btn-link" (click)="openRedeemDialog(coupon)">
+            {{ isAdmin || coupon.status === 'REDEEMED' ? 'View' : 'Redeem' }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

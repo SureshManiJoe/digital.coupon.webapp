@@ -1,0 +1,70 @@
+<h1 mat-dialog-title>{{ !isAdmin && coupon.status === 'ISSUED' ? 'REDEEM' : 'VIEW' }} COUPON</h1>
+<div mat-dialog-content>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" [(ngModel)]="coupon.name" readonly />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Discount %</label>
+        <input type="number" class="form-control" [(ngModel)]="coupon.discountPercent" readonly />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Customer Name</label>
+        <select class="form-control" disabled>
+          <option>{{ coupon.customer.name }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Customer Email</label>
+        <input type="email" class="form-control" [(ngModel)]="coupon.customer.email" readonly />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Expires On</label>
+        <input type="text" class="form-control" [(ngModel)]="coupon.expiresOn" readonly />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Revenue Share(%)</label>
+        <input type="number" class="form-control" [(ngModel)]="coupon.revenueSharePercent" readonly />
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!isAdmin && coupon.status === 'ISSUED'" class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Original Price</label>
+        <input type="number" class="form-control" [(ngModel)]="originalPrice" />
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="isFormValid === false" class="alert alert-danger" role="alert">
+  Original Price is Mandatory!
+</div>
+<div *ngIf="couponRedumptionErrored === true" class="alert alert-danger" role="alert">
+  Check the Network logs, error occured.Coupon Not Redeemed!!
+</div>
+<div mat-dialog-actions style="float: right;">
+  <div *ngIf="!isAdmin && coupon.status === 'ISSUED'">
+    <button type="button" class="btn btn-secondary" (click)="onCancel()" style="margin-right: 10px">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="onRedeem()">Redeem</button>
+  </div>
+  <div *ngIf="isAdmin || coupon.status === 'REDEEMED'">
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">Close</button>
+  </div>
+</div>

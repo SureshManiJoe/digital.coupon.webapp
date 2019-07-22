@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>CREATE COUPON</h1>
+<div mat-dialog-content>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" [(ngModel)]="coupon.name" />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Discount %</label>
+        <input type="number" class="form-control" [(ngModel)]="coupon.discountPercent" />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Customer Name</label>
+        <select class="form-control" [(ngModel)]="coupon.customer.id" (change)="onChangeCustomer()">
+          <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.name }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Customer Email</label>
+        <input type="email" class="form-control" [(ngModel)]="coupon.customer.email" readonly />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Expires On</label>
+        <input type="date" class="form-control" [(ngModel)]="coupon.expiresOn" />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Revenue Share(%)</label>
+        <input type="number" class="form-control" [(ngModel)]="coupon.revenueSharePercent" />
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="isFormValid === false" class="alert alert-danger" role="alert">
+  All fields are Mandatory!
+</div>
+<div *ngIf="couponCreationErrored === true" class="alert alert-danger" role="alert">
+  Check the Network logs, error occured.Coupon Not Created!!
+</div>
+<div mat-dialog-actions style="margin-top: 30px;float: right;">
+  <button type="button" class="btn btn-secondary" (click)="onCancel()" style="margin-right: 10px">Cancel</button>
+  <button type="button" class="btn btn-primary" (click)="onCreate()">Yes, Create</button>
+</div>

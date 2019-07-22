@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2 px-1 bg-dark" style="height: 100%">
+      <div class="py-2 sticky-top flex-grow-1">
+        <div class="nav flex-sm-column">
+          <a routerLink="/coupons" class="nav-item nav-link"><span>Coupons</span></a>
+          <a routerLink="/ledger" class="nav-item nav-link"><span>Ledger</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="col" id="main">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<footer style="width: 100%;bottom: 0;position: fixed;">
+  <div style="height: 65px;text-align: center; padding: 20px" class="bg-dark">
+    <small style="color: white">&copy; 2019 WatchBox All rights reserved</small>
+  </div>
+</footer>

@@ -1,0 +1,33 @@
+<div>
+  <div style="text-align:center;  padding-top: 20px;  padding-bottom: 10px;">
+    <h4>Sales Transactions</h4>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Coupon</th>
+        <th scope="col">Discount(%)</th>
+        <th scope="col">Original Price($)</th>
+        <th scope="col">Discount Amt($)</th>
+        <th scope="col">Sales Amt($)</th>
+        <th scope="col">Rev Share ($)</th>
+        <th scope="col">Settlement Amt($)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let l of ledger; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ l.coupon.customer.name }}</td>
+        <td>{{ l.coupon.name }}</td>
+        <td>{{ l.coupon.discountPercent }}</td>
+        <td>{{ l.originalPrice }}</td>
+        <td>{{ l.discountAmount }}</td>
+        <td>{{ l.salesAmount }}</td>
+        <td>{{ l.revenueShareAmount }}</td>
+        <td>{{ l.settlementAmount }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

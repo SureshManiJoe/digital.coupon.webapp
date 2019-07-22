@@ -1,0 +1,15 @@
+@import "src/theme/theme-variables";
+
+.navbar {
+  margin-bottom: 1px;
+  height: 70px;
+}
+
+.nav-link.dropdown-toggle {
+  cursor: pointer;
+}
+
+.navbar-title {
+  color: white;
+}
+
