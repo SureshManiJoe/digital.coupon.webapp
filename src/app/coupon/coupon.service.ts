@@ -10,14 +10,14 @@ export class CouponService {
   constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<Coupon[]> {
-    return this.httpClient.get<Coupon[]>('http://localhost:51165/api/coupons/getall');
+    return this.httpClient.get<Coupon[]>('http://ec2-3-89-157-47.compute-1.amazonaws.com:3000/coupons');
   }
 
   create(coupon: Coupon): Observable<any> {
-    return this.httpClient.post('http://localhost:51165/api/coupons/create', coupon);
+    return this.httpClient.post('http://ec2-3-89-157-47.compute-1.amazonaws.com:3000/coupons', coupon);
   }
 
   redeem(redeem: Redeem): Observable<any> {
-    return this.httpClient.post('http://localhost:51165/api/coupons/redeem', redeem);
+    return this.httpClient.post('http://ec2-3-89-157-47.compute-1.amazonaws.com:3000/coupons/redeem', redeem);
   }
 }

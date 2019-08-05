@@ -9,6 +9,6 @@ export class CustomerService {
   constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<Customer[]> {
-    return this.httpClient.get<Customer[]>('http://localhost:51165/api/customers');
+    return this.httpClient.get<Customer[]>('http://ec2-3-89-157-47.compute-1.amazonaws.com:3000/customers');
   }
 }

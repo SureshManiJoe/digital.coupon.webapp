@@ -7,7 +7,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Discount(%)</th>
+        <th scope="col">Discount Amount</th>
         <th scope="col">Customer</th>
         <th scope="col">Expires On</th>
         <th scope="col">Revenue Share(%)</th>
@@ -19,7 +19,7 @@
       <tr *ngFor="let coupon of coupons; index as i">
         <th scope="row">{{ i + 1 }}</th>
         <td>{{ coupon.name }}</td>
-        <td>{{ coupon.discountPercent }}</td>
+        <td>{{ coupon.discountAmount }}</td>
         <td>{{ coupon.customer.name }}</td>
         <td>{{ coupon.expiresOn }}</td>
         <td>{{ coupon.revenueSharePercent }}</td>

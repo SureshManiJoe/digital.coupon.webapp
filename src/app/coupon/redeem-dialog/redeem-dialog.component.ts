@@ -33,8 +33,8 @@ export class RedeemDialogComponent implements OnInit {
       return;
     }
     let redeem = new Redeem();
-    redeem.couponId = this.coupon.id;
-    redeem.originalPrice = this.originalPrice;
+    redeem.couponKey = this.coupon.key;
+    redeem.assetOriginalPrice = this.originalPrice;
     this.isFormValid = true;
     this.couponRedumptionErrored = false;
     this.service.redeem(redeem).subscribe(

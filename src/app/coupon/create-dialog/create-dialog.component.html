@@ -9,8 +9,8 @@
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <label>Discount %</label>
-        <input type="number" class="form-control" [(ngModel)]="coupon.discountPercent" />
+        <label>Discount Amount</label>
+        <input type="number" class="form-control" [(ngModel)]="coupon.discountAmount" />
       </div>
     </div>
   </div>
@@ -18,8 +18,8 @@
     <div class="col-md-6">
       <div class="form-group">
         <label>Customer Name</label>
-        <select class="form-control" [(ngModel)]="coupon.customer.id" (change)="onChangeCustomer()">
-          <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.name }}</option>
+        <select class="form-control" [(ngModel)]="coupon.customer.key" (change)="onChangeCustomer()">
+          <option *ngFor="let customer of customers" [value]="customer.key">{{ customer.name }}</option>
         </select>
       </div>
     </div>

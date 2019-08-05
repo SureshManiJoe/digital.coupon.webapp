@@ -1,5 +1,5 @@
 export class Customer {
-  public id: string;
+  public key: string;
   public name: string;
   public email: string;
   public constructor(init?: Partial<Customer>) {

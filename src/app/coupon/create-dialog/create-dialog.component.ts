@@ -23,14 +23,13 @@ export class CreateDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.coupon.customer = new Customer();
-    this.coupon.status = 'ISSUED';
     this.coupon.revenueSharePercent = 4.5;
     this.customers = this.data;
   }
 
   onChangeCustomer(): void {
-    var choosedCustomer = this.customers.find(c => c.id == this.coupon.customer.id);
-    this.coupon.customer.id = choosedCustomer.id;
+    var choosedCustomer = this.customers.find(c => c.key == this.coupon.customer.key);
+    this.coupon.customer.key = choosedCustomer.key;
     this.coupon.customer.name = choosedCustomer.name;
     this.coupon.customer.email = choosedCustomer.email;
   }
@@ -40,8 +39,8 @@ export class CreateDialogComponent implements OnInit {
     this.couponCreationErrored = false;
     if (
       this.coupon.name == undefined ||
-      this.coupon.discountPercent == undefined ||
-      this.coupon.customer.id == undefined ||
+      this.coupon.discountAmount == undefined ||
+      this.coupon.customer.key == undefined ||
       this.coupon.expiresOn == undefined ||
       this.coupon.revenueSharePercent == undefined
     ) {

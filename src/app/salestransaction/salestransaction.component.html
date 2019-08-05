@@ -8,7 +8,6 @@
         <th scope="col">#</th>
         <th scope="col">Customer</th>
         <th scope="col">Coupon</th>
-        <th scope="col">Discount(%)</th>
         <th scope="col">Original Price($)</th>
         <th scope="col">Discount Amt($)</th>
         <th scope="col">Sales Amt($)</th>
@@ -17,16 +16,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let l of ledger; index as i">
+      <tr *ngFor="let st of salesTransaction; index as i">
         <th scope="row">{{ i + 1 }}</th>
-        <td>{{ l.coupon.customer.name }}</td>
-        <td>{{ l.coupon.name }}</td>
-        <td>{{ l.coupon.discountPercent }}</td>
-        <td>{{ l.originalPrice }}</td>
-        <td>{{ l.discountAmount }}</td>
-        <td>{{ l.salesAmount }}</td>
-        <td>{{ l.revenueShareAmount }}</td>
-        <td>{{ l.settlementAmount }}</td>
+        <td>{{ st.partner.name }}</td>
+        <td>{{ st.coupon }}</td>
+        <td>{{ st.originalPrice }}</td>
+        <td>{{ st.discountAmount }}</td>
+        <td>{{ st.salesAmount }}</td>
+        <td>{{ st.revenueShareAmount }}</td>
+        <td>{{ st.settlementAmount }}</td>
       </tr>
     </tbody>
   </table>

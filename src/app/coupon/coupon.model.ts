@@ -1,9 +1,9 @@
 import { Customer } from './customer.model';
 
 export class Coupon {
-  public id: string;
+  public key: string;
   public name: string;
-  public discountPercent: number;
+  public discountAmount: number;
   public revenueSharePercent: number;
   public expiresOn: string;
   public status: string;

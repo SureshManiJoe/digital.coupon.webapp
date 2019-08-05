@@ -29,8 +29,8 @@ export class CouponComponent implements OnInit {
     if (this.credentialService.credentials.isAdmin) {
       this.isAdmin = true;
     }
-    this.couponService.getAll().subscribe(cs => (this.coupons = cs));
     this.customerService.getAll().subscribe(cs => (this.customers = cs));
+    this.couponService.getAll().subscribe(cs => (this.coupons = cs));
   }
 
   openCreateDialog(): void {
