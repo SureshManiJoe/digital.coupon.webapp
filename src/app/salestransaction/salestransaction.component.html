@@ -8,6 +8,7 @@
         <th scope="col">#</th>
         <th scope="col">Customer</th>
         <th scope="col">Coupon</th>
+        <th scope="col">Partner</th>
         <th scope="col">Original Price($)</th>
         <th scope="col">Discount Amt($)</th>
         <th scope="col">Sales Amt($)</th>
@@ -18,10 +19,11 @@
     <tbody>
       <tr *ngFor="let st of salesTransaction; index as i">
         <th scope="row">{{ i + 1 }}</th>
+        <td>{{ st.coupon.customer.name }}</td>
+        <td>{{ st.coupon.name }}</td>
         <td>{{ st.partner.name }}</td>
-        <td>{{ st.coupon }}</td>
         <td>{{ st.originalPrice }}</td>
-        <td>{{ st.discountAmount }}</td>
+        <td>{{ st.coupon.discountAmount }}</td>
         <td>{{ st.salesAmount }}</td>
         <td>{{ st.revenueShareAmount }}</td>
         <td>{{ st.settlementAmount }}</td>

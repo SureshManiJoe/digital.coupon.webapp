@@ -23,7 +23,8 @@ export class CreateDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.coupon.customer = new Customer();
-    this.coupon.revenueSharePercent = 4.5;
+    this.coupon.status = 'ISSUED';
+    this.coupon.revenueSharePercent = '4.5';
     this.customers = this.data;
   }
 
@@ -37,6 +38,10 @@ export class CreateDialogComponent implements OnInit {
   onCreate(): void {
     this.isFormValid = true;
     this.couponCreationErrored = false;
+    this.coupon.customerKey = this.coupon.customer.key;
+    this.coupon.discountAmount = this.coupon.discountAmount.toString();
+    this.coupon.revenueSharePercent = this.coupon.revenueSharePercent.toString();
+    this.coupon.expiresOn = this.convertDateString(new Date(this.coupon.expiresOn));
     if (
       this.coupon.name == undefined ||
       this.coupon.discountAmount == undefined ||
@@ -47,9 +52,9 @@ export class CreateDialogComponent implements OnInit {
       this.isFormValid = false;
       return;
     }
+
     this.service.create(this.coupon).subscribe(
       response => {
-        this.coupon = response;
         this.dialogRef.close(this.coupon);
       },
       error => {
@@ -60,5 +65,18 @@ export class CreateDialogComponent implements OnInit {
 
   onCancel(): void {
     this.dialogRef.close();
+  }
+
+  convertDateString(date: any) {
+    var dd = date.getDate();
+    var mm = date.getMonth() + 1;
+    var yyyy = date.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+    return dd + '-' + mm + '-' + yyyy;
   }
 }

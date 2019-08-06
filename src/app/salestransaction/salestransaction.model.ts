@@ -3,10 +3,10 @@ import { Coupon } from '@app/coupon/coupon.model';
 export class SalesTransaction {
   public key: string;
   public assetOriginalPrice: number;
-  public discountAmount: number;
-  public salesAmount: number;
-  public revenueShareAmount: number;
-  public settlementAmount: number;
+  public discountAmount: string;
+  public salesAmount: string;
+  public revenueShareAmount: string;
+  public settlementAmount: string;
   public coupon: Coupon;
   public partner: Partner;
   public constructor(init?: Partial<SalesTransaction>) {

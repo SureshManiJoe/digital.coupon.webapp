@@ -34,7 +34,9 @@ export class RedeemDialogComponent implements OnInit {
     }
     let redeem = new Redeem();
     redeem.couponKey = this.coupon.key;
-    redeem.assetOriginalPrice = this.originalPrice;
+    redeem.assetOriginalPrice = this.originalPrice.toString();
+    redeem.partnerKey = 'partner:101';
+    redeem.customerKey = this.coupon.customerKey;
     this.isFormValid = true;
     this.couponRedumptionErrored = false;
     this.service.redeem(redeem).subscribe(
